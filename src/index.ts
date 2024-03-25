@@ -48,8 +48,8 @@ app.post("/api/v1/signin", async (c) => {
     c.status(403);
     return c.json({ error: "User not found!" });
   }
-  const token = await sign({ id: user.id }, c.env.JWT_SECRET);
-  return c.json({ jwt: token });
+  // const token = await sign({ id: user.id }, c.env.JWT_SECRET);
+  return c.json({ data: user });
 });
 app.get("/api/v1/blog/:id", (c) => {
   const id = c.req.param("id");
